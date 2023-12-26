@@ -1,0 +1,169 @@
+/* Note F5 blocks this page, CSS has been put into the DB. Keeping this up to date, for now. 
+   Remember - Use double-quotes not single-quotes as you'll be pasting this into an insert statement. 
+*/
+
+@font-face { 
+	font-family: "Travelodge"; 
+	src: url("/pp/fonts/tvl/FSAlbertWeb-Regular.eot") ; /* IE9 */
+	src: url("/pp/fonts/tvl/FSAlbertWeb-Regular.woff") format("woff") ; /* Modern Browsers */
+	font-weight: normal;
+    font-style: normal; 
+}
+
+@font-face { 
+	font-family: "Travelodge"; 
+	src: url("/pp/fonts/tvl/FSAlbertWeb-Bold.eot") ;
+	src: url("/pp/fonts/tvl/FSAlbertWeb-Bold.woff") format("woff") ; 
+	font-weight: bold;
+    font-style: normal; 
+}
+
+@font-face { 
+	font-family: "Travelodge"; 
+	src: url("/pp/fonts/tvl/FSAlbertWeb-Italic.eot") ; /* IE9 */
+	src: url("/pp/fonts/tvl/FSAlbertWeb-Italic.woff") format("woff") ; /* Modern Browsers */
+	font-weight: normal ;
+    font-style: italic;
+}
+
+body.ppCustBody {
+	background-color: white ;
+	color: #353535 ;
+}
+
+div.ppCustMain {
+	font-size: 14pt;
+	font-family:"Travelodge", sans-serif ;
+}
+
+.ppCustButton {
+	background-color: #004282 ;
+	color: white ;
+	width: 8em;
+}
+
+.ppCustButtons {
+	margin-top: 1em;
+}
+
+.ppCustHeading {
+	font-style: bold ;
+	font-size: 14pt ;
+}
+
+.ppCustCopy {
+	font-style: normal ;
+	font-size: 14pt ;
+}
+
+.ppCustH1 {
+	color: #464646 ;
+	font-style: bold ;
+	font-size: 24pt ;
+}
+
+.ppCustH2 {
+	color: #004282 ;
+	font-style: normal; ;
+	font-size: 24pt ;
+	
+}
+
+.ppCustInput {
+    border-color: #008dc8;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.ppCustInputError {
+	color: #c52633;
+    border-color: #c52633;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.ppCustLabelError {
+    color: #c52633;
+}
+
+.ppSelectCardScheme, .ppSelectDate {
+    border-color: #008dc8;
+    border-style: solid;
+    border-width: 1px;
+    height: 28px;
+}
+
+.ppSelectCardSchemeError {
+    border-color: #c52633;
+    border-style: solid;
+    border-width: 1px;
+    width: 15em;
+    height: 28px;
+}
+
+.ppSelectDateError {
+    border-color: #c52633;
+    border-style: solid;
+    border-width: 1px;
+    width: 5em;
+    height: 28px;
+}
+
+/* back & continue buttons */
+button#cancel2 {
+    background-color: white ;
+    color: #008dc8 ;
+    border-width: 1px ;
+	border-radius: 4px;
+    border-color: #008dc8;
+    /* font-size: 14pt; */
+}
+
+button#submit2 {
+	background-image: linear-gradient(rgb(0, 141, 200), rgb(16, 124, 187));
+    color: white ;
+    border-width: 1px ;
+	border-radius: 4px;
+    border-color: white;
+    font-size: 14pt;
+    border-width: 1px ;
+}
+
+input.ppStyle:active {
+	border-color: #004282;
+}
+
+input.ppError {
+	border-color: #c52633;
+}
+
+.ppError {
+    color: #c52633;
+    margin-left: 0.1em;	
+}
+
+.cust_logo::before {
+  content:url('/pp/images/travelodge_logo.png') ;
+}
+
+/* Styles for specific displayed text */
+#donationTextDiv, #surchargeTextDiv, #transactionAmountTextDiv, #totalAmountTextDiv {
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: right;
+}
+
+span.cust_footer::before {
+	content: '\A9 Travelodge ' ;
+}
+
+div.cust_footer {
+	margin-top: 1.7em;
+	padding-left: 1em;
+	padding-top: 0.7em;
+	text-align: center;
+	background-color: #353535 ;
+	color: white;
+	height: 3em;
+}
+

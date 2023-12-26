@@ -1,0 +1,338 @@
+/* 
+===== FIS Colours =====
+Greens (lightest to darkest):
+	#cfe5ae 
+	#b9da89
+	#ac3f63
+	#8dc63f
+	#4f6f19
+Grey:
+    #807f83
+*/
+
+body {
+  color: #807f83;
+}
+
+h1 {
+  background: white;
+  color: #8dc63f;
+}
+
+div.buttons {
+  color: black;
+  width: 30%;
+  height: 32px;
+  left: 4px;
+}
+
+div.paymentTypeImage {
+  position: absolute;
+  width: 98%;
+  height: 50px;
+  bottom: 92px;
+  left: 0px;
+  right: 0px;
+  text-align: right;
+}
+
+div.SecureImage {
+  position: absolute;
+  bottom: 0px;
+  text-align: left;
+}
+
+div.standardIcons {
+  color: black;
+  position: fixed;
+  width: 80%;
+  height: 5em;
+  bottom: 2em;
+  float: right;
+  text-align: right;
+}
+
+div.mobileIcons {
+  color: black;
+  width: 100%;
+  height: 5em;
+  ftext-align: right;
+}
+
+div.mobileButtonBar {
+  background-color: #8dc63f;
+  width: 100%;
+  height: 2em;
+}
+
+div.standardButtonBar {
+  position: fixed;
+  background-color: #8dc63f;
+  width: 80%;
+  height: 2em;
+  bottom: 0em;
+}
+
+div.mobileButtonBar.button,
+div.standardButtonBar.button {
+  color: black;
+  padding: 0px 5px 5px 0px;
+  height: 2em;
+  width: 15%;
+  float: right;
+}
+
+div.mobileButtonBar a,
+div.mobileButtonBar a:link,
+div.mobileButtonBar a:visited,
+div.mobileButtonBar a:hover,
+div.mobileButtonBar a:active,
+div.standardButtonBar a,
+div.standardButtonBar a:link,
+div.standardButtonBar a:visited,
+div.standardButtonBar a:hover,
+div.standardButtonBar a:active {
+  background-color: #8dc63f;
+  padding: 5px 5px 5px 5px;
+  height: 2em;
+  width: 5em;
+  float: right;
+  text-decoration: none;
+  vertical-align: middle;
+  color: black;
+  cursor: pointer;
+}
+
+.SecureImage img {
+  padding: 0px 10px 5px 0px;
+  width: 20%;
+  float: right;
+}
+
+.button:hover {
+  background-repeat: no-repeat;
+  background-position: center;
+  color: black;
+  background: #ddd;
+}
+
+.button:active {
+  background-repeat: no-repeat;
+  background-position: center;
+  color: black;
+  background: #ddd;
+}
+
+#cvv-help-container {
+  display: inline-block;
+}
+
+#cvv-help {
+  font-size: small;
+  border: outset black 4px;
+  width: 40%;
+  margin-top: -14em;
+  margin-left: 0.5em;
+  z-index: 100;
+  color: #807f83;
+  background-color: white;
+  padding: 0.5em;
+  position: absolute;
+  display: none;
+}
+
+#cvv-help img {
+  float: right;
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+}
+
+/* ==== tidy up stuff above, remove where possible, newer stuff below this line ==== */
+
+/* ======== All selectors for input field labels ======== */
+.input-row {
+}
+
+.input-row label {
+  display: inline-block;
+}
+
+/* ======== All selectors for input fields ======== */
+
+input.ppStyle {
+  border-style: solid;
+  border-width: 1px;
+}
+
+/* Specify width on top of the style */
+.input-row input.ppWide {
+  width: 15em;
+}
+
+.input-row input.ppMedium {
+  width: 14em;
+}
+
+.input-row input.ppSmall {
+  width: 5em;
+}
+
+.input-row input.ppNumeric {
+  text-align: right;
+}
+
+.input-row input:focus {
+  background-color: #f4f4f4;
+}
+
+input.ppReadOnly {
+  /*border:none;*/
+  background-color: dark-grey;
+}
+
+input.ppAmount {
+  width: 3em;
+  text-align: right;
+  margin-left: 0.25em;
+  background-color: #eceaea;
+  color: #494949;
+}
+
+/* ======== All selectors for input field error messages ======== */
+
+.ppError {
+  color: red;
+  margin-left: 0.1em;
+}
+
+.ppErrorHidden {
+  display: none;
+}
+
+/* ===== */
+
+.ppRow {
+  margin-top: 0.2em;
+  padding: 0em;
+}
+
+.ppSelectCardScheme,
+.ppSelectCardSchemeError {
+  width: 15em;
+  height: 28px;
+  border-radius: 0px;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.ppSelectDate,
+.ppSelectDateError {
+  width: 5em;
+  height: 28px;
+  border-color: black;
+  border-radius: 0px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.ppSelectDateSlash {
+  font-weight: bold;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+label.ppCurrencyCode {
+  margin-left: 1em;
+}
+
+#ppMain {
+  font-size: larger;
+}
+
+div.ppCardSchemeIcons {
+  color: black;
+  width: 100%;
+  text-align: left;
+  margin-top: 1em;
+  margin-right: 1em;
+}
+
+div.ppSubmitButtons {
+  color: black;
+  width: 100%;
+  text-align: left;
+  margin-top: 1em;
+  margin-right: 1em;
+}
+
+.ppSubmitButton {
+  margin-right: 1em;
+}
+
+/* :after is a hack to make img content:url work in FF */
+
+img.paypal,
+img.paypal:after {
+  content: url("/pp/images/scheme/paypal.png?20190329");
+}
+
+/* FIXME: Change all visa to visa.png after F5 training enabled. visa_debit has been trained. */
+.visa_debit::before {
+  content: url("/pp/images/scheme/visa-logo-jr-83x29.jpg?20210316");
+  margin-right: 5px;
+}
+
+.visa_credit::before,
+.visa_credit::before {
+  content: url("/pp/images/scheme/visa-logo-jr-83x29.jpg?20210316");
+  margin-right: 5px;
+}
+
+.mastercard_debit::before,
+.mastercard_credit::before {
+  content: url("/pp/images/scheme/mastercard.png?20190329");
+  margin-right: 5px;
+}
+
+.amex_credit::before,
+.amex::before {
+  content: url("/pp/images/scheme/americanexpress.png?20190329");
+  margin-right: 5px;
+}
+
+.maestro_debit::before,
+.maestro_credit::before {
+  content: url("/pp/images/scheme/maestro.png?20190329");
+  margin-right: 5px;
+}
+
+.cust_logo::before {
+}
+
+div.cust_header_mobile {
+  text-align: center;
+  background-color: #004282;
+}
+
+div.cust_header {
+  text-align: left;
+  background-color: #004282;
+}
+
+/* Styles for specific displayed text */
+#donationTextDiv,
+#surchargeTextDiv,
+#transactionAmountTextDiv,
+#totalAmountTextDiv {
+}
+
+label.requiredField {
+  vertical-align: text-top;
+  padding-top: 0.1em;
+}
+
+.noPadding {
+  padding-right: 0px;
+  padding-left: 0px;
+}
