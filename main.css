@@ -1,0 +1,562 @@
+.c-footer {
+  color: #fff;
+  overflow: hidden;
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: translateY(200px);
+}
+
+.c-footer h1,
+.c-footer .h1,
+.c-footer h2,
+.c-footer .h2,
+.c-footer h3,
+.c-footer .h3,
+.c-footer h4,
+.c-footer .h4,
+.c-footer h5,
+.c-footer .h5,
+.c-footer h6,
+.c-footer .h6,
+.c-footer p,
+.c-footer span,
+.c-footer li,
+.c-footer a:not(.c-btn-secondary),
+.c-footer label,
+.c-footer dt,
+.c-footer dd {
+  color: #fff;
+}
+
+.c-footer a {
+  text-decoration: none;
+}
+
+.c-footer__section {
+  border-bottom: 1px solid #606060;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.c-footer .app-promotion {
+  display: none;
+}
+
+.c-footer-nav-bottom {
+  line-height: 1.8;
+  text-align: center;
+}
+
+.c-footer-social-links {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 991px) {
+  .c-footer-nav-bottom {
+    text-align: center;
+  }
+}
+
+@media (max-width: 991px) {
+  .c-footer-social-links {
+    /* border-bottom:1px solid #606060; */
+    margin-top: 35px;
+    padding-bottom: 40px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 991px) {
+  .c-footer-social-links__icons {
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .c-footer-social-links__icons {
+    /* float: center; */
+  }
+}
+
+@media (min-width: 1200px) {
+  .app-promotion {
+    display: block !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .app-promotion {
+    display: block !important;
+  }
+}
+
+.c-footer-social-links-mobile__icons {
+  margin: 0 auto;
+}
+
+.mobile-copy p,
+.mobile-copy a {
+  text-align: start !important;
+  margin-top: 0px !important;
+}
+
+.mobile-copy a {
+  color: #fff000 !important;
+  text-decoration: underline;
+}
+
+.footer-icon {
+  border-left: 7px solid transparent;
+}
+
+.footer-icon img {
+  height: 24px;
+  width: 24px;
+}
+
+.row,
+.pgConfirmation .chForm .register,
+.pgManageBooking .chForm .register {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--bs-gutter-y) * -1);
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.row > *,
+.pgConfirmation .chForm .register > *,
+.pgManageBooking .chForm .register > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-top: 20px;
+}
+
+.c-table {
+  transform: translateX(-30px);
+  display: table;
+}
+
+.c-table--fixed {
+  table-layout: fixed;
+}
+
+.c-table--collapse {
+  border-collapse: collapse;
+}
+
+.c-table--full {
+  width: 100%;
+}
+
+.c-table__row {
+  display: table-row;
+}
+
+.c-table__cell {
+  display: table-cell;
+}
+
+.c-table__cell--half {
+  width: 50%;
+}
+
+.c-table__cell--bottom {
+  vertical-align: bottom;
+}
+
+.c-table__cell--middle {
+  vertical-align: middle;
+}
+
+.c-table__cell--top {
+  vertical-align: top;
+}
+
+.u-reset-list,
+.pgHotel .c-cross-sell__item,
+.pgHotelAffiliate .c-cross-sell__item {
+  list-style: none;
+}
+
+.u-font-size-sm,
+.mobile-copy p,
+.mobile-copy a {
+  font-size: 12px;
+}
+
+.u-font-size-lg {
+  font-size: 26px;
+}
+
+@media (min-width: 768px) {
+  .u-font-size-lg {
+    font-size: 32px;
+  }
+  .u-font-size-sm,
+  .mobile-copy p,
+  .mobile-copy a {
+    font-size: 24px;
+  }
+}
+
+.u-clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.u-clear-left {
+  clear: left;
+}
+
+.u-hide {
+  display: none;
+}
+
+.u-block {
+  display: block;
+}
+
+.u-block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.u-inline-block {
+  display: inline-block;
+}
+
+.u-hide {
+  display: none;
+}
+
+.u-block {
+  display: block;
+}
+
+.u-block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.u-inline-block {
+  display: inline-block;
+}
+
+@media (max-width: 1024px) {
+  .hidden-ipad-landscape {
+    display: none;
+  }
+}
+
+.u-pin {
+  position: absolute;
+}
+
+.u-pin-top-xs {
+  top: 5px;
+}
+
+.u-pin-top-sm {
+  top: 10px;
+}
+
+.u-pin-top-md {
+  top: 15px;
+}
+
+.u-pin-top-lg {
+  top: 20px;
+}
+
+.u-pin-top-xl {
+  top: 25px;
+}
+
+.u-pin-right-xs {
+  right: 5px;
+}
+
+.u-pin-right-sm {
+  right: 10px;
+}
+
+.u-pin-right-md {
+  right: 15px;
+}
+
+.u-pin-right-lg {
+  right: 20px;
+}
+
+.u-pin-right-xl {
+  right: 25px;
+}
+
+.u-pin-bottom-xs {
+  bottom: 5px;
+}
+
+.u-pin-bottom-sm {
+  bottom: 10px;
+}
+
+.u-pin-bottom-md {
+  bottom: 15px;
+}
+
+.u-pin-bottom-lg {
+  bottom: 20px;
+}
+
+.u-pin-bottom-xl {
+  bottom: 25px;
+}
+
+.u-pin-left-xs {
+  left: 5px;
+}
+
+.u-pin-left-sm {
+  left: 10px;
+}
+
+.u-pin-left-md {
+  left: 15px;
+}
+
+.u-pin-left-lg {
+  left: 20px;
+}
+
+.u-pin-left-xl {
+  left: 25px;
+}
+
+.pos-rel,
+.u-position-relative {
+  position: relative;
+}
+
+.u-position-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.u-position-static {
+  position: static !important;
+}
+
+.u-reset-list,
+.pgHotel .c-cross-sell__item,
+.pgHotelAffiliate .c-cross-sell__item {
+  list-style: none;
+}
+
+.u-margin-lg {
+  margin: 20px;
+}
+
+.u-margin-top-none {
+  margin-top: 0;
+}
+
+.u-margin-top,
+.pgHotel .c-cross-sell__distance,
+.pgHotelAffiliate .c-cross-sell__distance,
+.pgHotel .c-cross-sell__price,
+.pgHotelAffiliate .c-cross-sell__price {
+  margin-top: 15px;
+}
+
+.u-margin-top-xs {
+  margin-top: 5px;
+}
+
+.u-margin-top-sm,
+.pgHotel .c-cross-sell__title,
+.pgHotelAffiliate .c-cross-sell__title,
+.pgHotel .c-cross-sell__cta,
+.pgHotelAffiliate .c-cross-sell__cta {
+  margin-top: 10px;
+}
+
+.u-margin-top-md {
+  margin-top: 15px;
+}
+
+.u-margin-top-lg {
+  margin-top: 20px;
+}
+
+.u-margin-top-xl,
+#forgotConfNumberForm .c-forgot-booking__btns {
+  margin-top: 25px;
+}
+
+.u-margin-right-sm {
+  margin-right: 10px;
+}
+
+.u-margin-right {
+  margin-right: 15px;
+}
+
+.u-margin-right-lg {
+  margin-right: 20px;
+}
+
+.u-margin-bottom-xs {
+  margin-bottom: 5px;
+}
+
+.u-margin-bottom-sm,
+.pgHomeB .c-recommendations__title-text {
+  margin-bottom: 10px;
+}
+
+.u-margin-bottom {
+  margin-bottom: 15px;
+}
+
+.u-margin-bottom-lg {
+  margin-bottom: 20px;
+}
+
+.u-margin-bottom-xl {
+  margin-bottom: 25px;
+}
+
+.u-margin-right-xs {
+  margin-right: 5px;
+}
+
+.u-margin-left-sm {
+  margin-left: 10px;
+}
+
+.u-margin-left-md {
+  margin-left: 15px;
+}
+
+.u-margin-left-xs {
+  margin-left: 5px;
+}
+
+.u-margin-left-xs-2 {
+  margin-left: 2px;
+}
+
+.u-padding {
+  padding: 15px;
+}
+
+.u-padding-top-sm {
+  padding-top: 5px;
+}
+
+.u-padding-top-lg {
+  padding-top: 20px;
+}
+
+.u-padding-bottom-sm {
+  padding-bottom: 5px;
+}
+
+.u-padding-bottom-lg {
+  padding-bottom: 20px;
+}
+
+.u-padding-left-lg {
+  padding-left: 20px;
+}
+
+.u-padding-left-md {
+  padding-left: 15px;
+}
+
+.u-padding-right-md {
+  padding-right: 15px;
+}
+
+.u-text-sky {
+  color: #008dc8;
+}
+
+.ta-right {
+  text-align: right;
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-text-left {
+  text-align: left;
+}
+
+.u-text-right {
+  text-align: right;
+}
+
+@media (min-width: 992px) {
+  .text-md-right {
+    text-align: right;
+  }
+
+  .text-md-center {
+    text-align: center;
+  }
+}
+
+.u-vertical-align-baseline {
+  vertical-align: baseline;
+}
+
+.u-vertical-align-bottom {
+  vertical-align: bottom;
+}
+
+.u-text-bold {
+  font-weight: 600;
+}
+
+.u-text-underline {
+  text-decoration: underline;
+}
+
+.u-font-primary,
+.pgHomeB .searchWidget input,
+.pgHotelAffiliate .c-well-affiliate__hotel {
+  font-family: "FS Albert Light", arial, sans-serif;
+  font-weight: normal;
+}
+
+.u-font-primary--bold,
+.c-filters__heading {
+  font-family: "FS Albert Bold", arial, sans-serif;
+}
+
+.u-font-weight-bold {
+  font-weight: bold;
+}
+
+.h1 {
+  font-size: 18px;
+}
